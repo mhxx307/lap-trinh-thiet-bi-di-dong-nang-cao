@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            document.body.innerHTML =
+                "a:<input type='text' id='input1' /><br/>b:<input type='text' id='input2' /><br/><button id='button'>submit</button><br/><div id='result'></div>";
+            var input1 = document.getElementById("input1");
+            var input2 = document.getElementById("input2");
+            var button = document.getElementById("button");
+            var resultDiv = document.getElementById("result");
+
+            button.onclick = function () {
+                var a = input1.value;
+                var b = input2.value;
+                var result = parseInt(a) + parseInt(b);
+                resultDiv.innerHTML = result;
+            };
+        </script>
+    </body>
+</html>
