@@ -2,22 +2,30 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { Button } from "@react-native-material/core";
 import rec from "../assets/rec.png";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function App1Screen() {
     return (
-        <View style={styles.container}>
-            <Image source={rec} style={styles.image} />
-            <Text style={styles.title}>Grown your business</Text>
-            <Text style={styles.text}>
-                i will help you business using online server! Are you ready
-                begining?
-            </Text>
-            <View style={styles.wrapperBtn}>
-                <Button title="Login" style={styles.btn} />
-                <Button title="Sign up" style={styles.btn} />
+        <LinearGradient
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            colors={["#4c669f", "#3b5998", "#192f6a"]}
+            style={styles.linearGradient}
+        >
+            <View style={styles.container}>
+                <Image source={rec} style={styles.image} />
+                <Text style={styles.title}>Grown your business</Text>
+                <Text style={styles.text}>
+                    i will help you business using online server! Are you ready
+                    begining?
+                </Text>
+                <View style={styles.wrapperBtn}>
+                    <Button title="Login" style={styles.btn} />
+                    <Button title="Sign up" style={styles.btn} />
+                </View>
+                <Text style={styles.link}>HOW WE WORK?</Text>
             </View>
-            <Text style={styles.link}>HOW WE WORK?</Text>
-        </View>
+        </LinearGradient>
     );
 }
 
@@ -65,8 +73,18 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-
         elevation: 5,
+        backgroundColor: "#E3C000",
     },
-    link: {},
+    link: {
+        color: "#000",
+        fontSize: 16,
+        fontWeight: "bold",
+    },
+    linearGradient: {
+        flex: 1,
+        paddingLeft: 15,
+        paddingRight: 15,
+        borderRadius: 5,
+    },
 });
