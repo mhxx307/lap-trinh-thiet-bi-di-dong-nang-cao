@@ -1,14 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import Checkbox from "expo-checkbox";
 import { Button, TextInput } from "@react-native-material/core";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 
-export default function App2Screen() {
-    const [isChecked, setChecked] = useState(false);
-    const [isChecked1, setChecked1] = useState(false);
+export default function App3Screen() {
     const [password, setPassword] = useState("");
     const [passwordVisibility, setPasswordVisibility] = useState(true);
     const [rightIcon, setRightIcon] = useState("eye");
@@ -31,9 +28,7 @@ export default function App2Screen() {
             style={styles.linearGradient}
         >
             <View style={styles.container}>
-                <Text style={styles.title}>Register</Text>
-                <TextInput style={styles.input} placeholder="Name" />
-                <TextInput style={styles.input} placeholder="Phone" />
+                <Text style={styles.title}>Login</Text>
                 <TextInput style={styles.input} placeholder="Email" />
                 <View style={styles.inputContainer}>
                     <TextInput
@@ -59,25 +54,41 @@ export default function App2Screen() {
                         />
                     </Pressable>
                 </View>
-                <TextInput style={styles.input} placeholder="Birthday" />
-                <View style={styles.containCheckbox}>
-                    <Checkbox
-                        style={styles.checkbox}
-                        value={isChecked}
-                        onValueChange={setChecked}
-                    />
-                    <Text style={styles.textCheckbox}>Male</Text>
-                    <Checkbox
-                        style={styles.checkbox}
-                        value={isChecked1}
-                        onValueChange={setChecked1}
-                        color={isChecked ? "#4630EB" : undefined}
-                    />
-                    <Text style={styles.textCheckbox}>Female</Text>
-                </View>
 
                 <View style={{ width: "100%" }}>
-                    <Button styles={styles.btnRegister} title="Register" />
+                    <Button styles={styles.btnRegister} title="Login" />
+                </View>
+
+                <View>
+                    <Text style={styles.text}>
+                        When you argee to terms and conditions
+                    </Text>
+                    <Text style={styles.text}>For got your password?</Text>
+                    <Text style={styles.text}>Or login with</Text>
+                </View>
+
+                <View style={styles.containerImage}>
+                    <View style={{ backgroundColor: "blue", flex: 1 }}>
+                        <MaterialCommunityIcons
+                            name="facebook"
+                            style={{ textAlign: "center", padding: 20 }}
+                        />
+                    </View>
+                    <View style={{ backgroundColor: "#fff", flex: 1 }}>
+                        <MaterialCommunityIcons
+                            name="google"
+                            style={{ textAlign: "center", padding: 20 }}
+                        />
+                    </View>
+                    <View style={{ backgroundColor: "cyan", flex: 1 }}>
+                        <MaterialCommunityIcons
+                            name="twitter"
+                            style={{
+                                textAlign: "center",
+                                padding: 20,
+                            }}
+                        />
+                    </View>
                 </View>
             </View>
         </LinearGradient>
@@ -100,6 +111,9 @@ const styles = StyleSheet.create({
         textTransform: "uppercase",
         marginBottom: 20,
     },
+    text: {
+        textAlign: "center",
+    },
     input: {
         width: "100%",
     },
@@ -117,19 +131,14 @@ const styles = StyleSheet.create({
     press: {
         flex: 1,
     },
-    containCheckbox: {
+    containerImage: {
         flexDirection: "row",
-    },
-    checkbox: {
-        margin: 8,
-    },
-    textCheckbox: {
-        color: "#fff",
-        alignSelf: "center",
+        width: "100%",
+        justifyContent: "space-between",
     },
     btnRegister: {
         color: "#fff",
-        backgroundColor: "#E3C000",
+        backgroundColor: "coral",
     },
     linearGradient: {
         flex: 1,

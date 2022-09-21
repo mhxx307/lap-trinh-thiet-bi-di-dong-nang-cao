@@ -13,6 +13,9 @@ export default function HomeScreen({ navigation }) {
             <View style={{ marginBottom: 20 }}></View>
 
             <Button title="App 2" onPress={() => navigation.navigate("App2")} />
+            <View style={{ marginBottom: 20 }}></View>
+
+            <Button title="App 3" onPress={() => navigation.navigate("App3")} />
         </View>
     );
 }
