@@ -3,8 +3,10 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { Button } from "@react-native-material/core";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import gt2 from "../assets/giaiTich.jpg";
+import { useState } from "react";
 
 export default function Lab_03_a() {
+    const [count, setCount] = useState(1);
     return (
         <View style={styles.container}>
             {/* wrapper 1 , header */}
@@ -42,7 +44,7 @@ export default function Lab_03_a() {
                             <TouchableOpacity
                                 style={styles.button}
                                 onPress={() => {
-                                    alert("you clicked me");
+                                    count > 1 && setCount(count - 1);
                                 }}
                             >
                                 <MaterialCommunityIcons
@@ -51,12 +53,12 @@ export default function Lab_03_a() {
                                 />
                             </TouchableOpacity>
 
-                            <Text>1</Text>
+                            <Text>{count}</Text>
 
                             <TouchableOpacity
                                 style={styles.button}
                                 onPress={() => {
-                                    alert("you clicked me");
+                                    setCount(count + 1);
                                 }}
                             >
                                 <MaterialCommunityIcons name="plus" size={10} />
