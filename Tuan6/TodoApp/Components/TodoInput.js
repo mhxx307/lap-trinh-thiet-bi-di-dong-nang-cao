@@ -32,7 +32,7 @@ export default function TodoInput() {
                 </TouchableOpacity>
             </View>
 
-            <TodoList coursesData={courseList} />
+            <TodoList coursesData={courseList} setCourseList={setCourseList} />
         </View>
     );
 }
