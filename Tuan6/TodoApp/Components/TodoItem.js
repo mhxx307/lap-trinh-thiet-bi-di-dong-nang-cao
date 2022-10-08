@@ -1,8 +1,10 @@
 import { View, Text, TouchableOpacity, Button, Alert } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../assets/style/TodoListStyle";
+import { MyContext } from "../Context";
 
-export default function TodoItem({ item, courses, setCourses }) {
+export default function TodoItem({ item }) {
+    const { courses, setCourses } = useContext(MyContext);
     const deleteSelectedElement = () => {
         Alert.alert(
             "Are You Sure Want To Delete Item = " + item.title.toUpperCase(),

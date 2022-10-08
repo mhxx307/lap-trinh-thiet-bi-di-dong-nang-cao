@@ -1,17 +1,16 @@
 import { View, TextInput, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../assets/style/TodoInputStyle";
 import { AntDesign } from "@expo/vector-icons";
-import courses from "../data";
-import TodoList from "./TodoList";
+import { MyContext } from "../Context";
 
 export default function TodoInput() {
     const [text, setText] = useState("");
-    const [courseList, setCourseList] = useState(courses);
+    const { courses, setCourses } = useContext(MyContext);
 
     handleAddCourse = () => {
         if (text.length > 0) {
-            setCourseList([...courseList, { id: courseList.length + 1, title: text }]);
+            setCourses([...courses, { id: courses.length + 1, title: text }]);
             setText("");
         }
     };
@@ -31,8 +30,6 @@ export default function TodoInput() {
                     <AntDesign name="pluscircle" size={24} color="#2ecc71" />
                 </TouchableOpacity>
             </View>
-
-            <TodoList coursesData={courseList} setCourseList={setCourseList} />
         </View>
     );
 }

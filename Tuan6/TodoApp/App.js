@@ -1,11 +1,13 @@
 import { StyleSheet, View, StatusBar } from "react-native";
 import TodoInput from "./Components/TodoInput";
 import TodoList from "./Components/TodoList";
+import Context from "./Context";
 
-export default function App() {
+function App() {
     return (
         <View style={styles.container}>
             <TodoInput />
+            <TodoList />
         </View>
     );
 }
@@ -17,3 +19,12 @@ const styles = StyleSheet.create({
         padding: 15,
     },
 });
+
+// export context
+export default () => {
+    return (
+        <Context>
+            <App />
+        </Context>
+    );
+};
