@@ -9,7 +9,7 @@ export default function TodoList() {
         <View>
             <FlatList
                 data={courses}
-                renderItem={({ item }) => <TodoItem item={item} />}
+                renderItem={({ item, index }) => <TodoItem item={item} index={index} />}
                 keyExtractor={(item) => `${item.title}`}
             />
         </View>

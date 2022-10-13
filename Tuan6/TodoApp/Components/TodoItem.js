@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import styles from "../assets/style/TodoListStyle";
 import { MyContext } from "../Context";
 
-export default function TodoItem({ item }) {
+export default function TodoItem({ item, index }) {
     const { courses, setCourses } = useContext(MyContext);
     const deleteSelectedElement = () => {
         Alert.alert(
@@ -29,7 +29,7 @@ export default function TodoItem({ item }) {
     return (
         <View>
             <TouchableOpacity style={styles.container}>
-                <Text style={styles.text}>{item.id}</Text>
+                <Text style={styles.text}>{index + 1}</Text>
                 <Text style={styles.text}>{item.title}</Text>
                 <Button title="Delete" onPress={deleteSelectedElement} />
             </TouchableOpacity>
