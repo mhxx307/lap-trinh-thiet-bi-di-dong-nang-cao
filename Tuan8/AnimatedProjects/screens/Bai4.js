@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Animated, Image, StyleSheet, View } from "react-native";
+import { Animated, Image, StyleSheet, Text, View } from "react-native";
 import favicon from "../assets/favicon.png";
 
 function Bai4() {
@@ -17,7 +17,7 @@ function Bai4() {
     const leftToRight = () => {
         Animated.timing(translateXAni, {
             toValue: 300,
-            duration: 500,
+            duration: 5000,
             useNativeDriver: true,
         }).start();
     };
@@ -29,12 +29,18 @@ function Bai4() {
 
     return (
         <View style={styles.container}>
-            <Animated.View style={styles.containerImage}>
-                <Image
-                    style={[styles.image, { transform: [{ translateX: translateXAni }] }]}
-                    source={favicon}
-                />
-                <Text style={[styles.text, { opacity: fadeAni }]}>Hello</Text>
+            <Animated.View
+                style={[
+                    styles.containerImage,
+                    { transform: [{ translateX: translateXAni }] },
+                ]}
+            >
+                <Image style={styles.image} source={favicon} />
+            </Animated.View>
+            <Animated.View style={{ opacity: fadeAni }}>
+                <View>
+                    <Text style={styles.text}>Hello</Text>
+                </View>
             </Animated.View>
         </View>
     );
@@ -49,8 +55,13 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    containerImage: {},
-    containerButton: {},
+
+    containerImage: {
+        position: "absolute",
+        left: 0,
+        top: "30%",
+    },
+
     image: {
         width: 100,
         height: 100,
