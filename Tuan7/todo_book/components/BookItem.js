@@ -1,5 +1,12 @@
 import React from "react";
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+    Button,
+    Image,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+} from "react-native";
 
 export default function BookItem({ item, index }) {
     return (
@@ -7,7 +14,9 @@ export default function BookItem({ item, index }) {
             <TouchableOpacity style={styles.container}>
                 <Text style={styles.text}>{index + 1}</Text>
                 <Text style={styles.text}>{item.name}</Text>
-                <Text style={styles.text}>{item.image}</Text>
+                <View>
+                    <Image source={item.image} style={styles.image} />
+                </View>
                 <Button title="Delete" />
             </TouchableOpacity>
         </View>
@@ -22,4 +31,8 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     text: {},
+    image: {
+        width: 50,
+        height: 50,
+    },
 });
