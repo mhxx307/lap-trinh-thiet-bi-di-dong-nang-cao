@@ -14,6 +14,8 @@ function Home() {
             <Button title="Bai 3" onPress={() => navigation.navigate("Bai3")} />
             <View style={{ marginBottom: 20 }}></View>
             <Button title="Bai 4" onPress={() => navigation.navigate("Bai4")} />
+            <View style={{ marginBottom: 20 }}></View>
+            <Button title="Bai 5" onPress={() => navigation.navigate("Bai5")} />
         </View>
     );
 }
