@@ -16,6 +16,10 @@ function Home() {
             <Button title="Bai 4" onPress={() => navigation.navigate("Bai4")} />
             <View style={{ marginBottom: 20 }}></View>
             <Button title="Bai 5" onPress={() => navigation.navigate("Bai5")} />
+            <View style={{ marginBottom: 20 }}></View>
+            <Button title="Bai 6" onPress={() => navigation.navigate("Bai6")} />
+            <View style={{ marginBottom: 20 }}></View>
+            <Button title="Bai 7" onPress={() => navigation.navigate("Bai7")} />
         </View>
     );
 }
