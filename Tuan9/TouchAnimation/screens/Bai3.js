@@ -13,17 +13,6 @@ function Bai3() {
         marginTopCat: new Animated.Value(10),
     });
 
-    function onPress(evt) {
-        var x = evt.nativeEvent.locationX;
-        var y = evt.nativeEvent.locationY;
-        setLocationCat({
-            xCat: x,
-            yCat: y,
-            marginLeftCat: x,
-            marginTopCat: y,
-        });
-    }
-
     const { marginTopCat, marginLeftCat } = locationCat;
 
     // mouse
@@ -91,51 +80,52 @@ function Bai3() {
             marginLeft2: x2,
             marginTop2: y2,
         });
+
+        var x3 = evt.nativeEvent.locationX;
+        var y3 = evt.nativeEvent.locationY;
+        setLocationCat({
+            xCat: x3,
+            yCat: y3,
+            marginLeftCat: x3,
+            marginTopCat: y3,
+        });
     };
 
     return (
-        <>
-            <View
-                style={styles.container}
-                onStartShouldSetResponder={() => true}
-                onMoveShouldSetResponder={() => true}
-                // onResponderGrant={onPress}
-                onResponderRelease={onPress}
-            >
-                <Animated.Image
-                    source={images.cat}
-                    style={{ marginLeft: marginLeftCat, marginTop: marginTopCat }}
-                ></Animated.Image>
-            </View>
-            <View style={styles.mouses}>
-                <Animated.Image
-                    source={images.mouse}
-                    style={{ marginLeft: marginLeft, marginTop: marginTop }}
-                    onTouchStart={onTouch}
-                ></Animated.Image>
+        <View
+            style={styles.container}
+            onStartShouldSetResponder={() => true}
+            onMoveShouldSetResponder={() => true}
+        >
+            <Animated.Image
+                source={images.cat}
+                style={{ marginLeft: marginLeftCat, marginTop: marginTopCat }}
+            ></Animated.Image>
 
-                <Animated.Image
-                    source={images.mouse}
-                    style={{ marginLeft: marginLeft1, marginTop: marginTop1 }}
-                    onTouchStart={onTouch}
-                ></Animated.Image>
+            <Animated.Image
+                source={images.mouse}
+                style={{ marginLeft: marginLeft, marginTop: marginTop }}
+                onTouchStart={onTouch}
+            ></Animated.Image>
 
-                <Animated.Image
-                    source={images.mouse}
-                    style={{ marginLeft: marginLeft2, marginTop: marginTop2 }}
-                    onTouchStart={onTouch}
-                ></Animated.Image>
-            </View>
-        </>
+            <Animated.Image
+                source={images.mouse}
+                style={{ marginLeft: marginLeft1, marginTop: marginTop1 }}
+                onTouchStart={onTouch}
+            ></Animated.Image>
+
+            <Animated.Image
+                source={images.mouse}
+                style={{ marginLeft: marginLeft2, marginTop: marginTop2 }}
+                onTouchStart={onTouch}
+            ></Animated.Image>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-    mouses: {
-        position: "absolute",
     },
 });
 
