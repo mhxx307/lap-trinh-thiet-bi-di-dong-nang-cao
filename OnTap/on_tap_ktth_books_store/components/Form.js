@@ -1,13 +1,19 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Alert, StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { request } from "../utils/request";
 import { BookContext } from "../store/Context";
 
 function Form() {
-    const { name, setName, url, setUrl, fetchBooks } = useContext(BookContext);
+    const { name, setName, url, setUrl, fetchBooks, leftToRight } =
+        useContext(BookContext);
 
     const handleAddBook = async () => {
+        if (!name || !url) {
+            Alert.alert("Error", "Book name and url cannot be empty");
+            return;
+        }
+
         try {
             const requestObj = {
                 name,
@@ -17,6 +23,7 @@ function Form() {
             setName("");
             setUrl("");
             Alert.alert("Success", "Book added successfully");
+            leftToRight();
             fetchBooks();
         } catch (error) {
             Alert.alert("Error", "Something went wrong");
